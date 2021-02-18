@@ -140,7 +140,7 @@ ol {
 
 .set-bg {
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	background-position: top center;
 }
 
@@ -527,7 +527,9 @@ ol {
 	color: #ffffff;
 	border-radius: 0 4px 4px 0;
 }
-
+.hero__slider .hero__items:nth-of-type(2) > h2{
+	color: black;
+}
 .hero__slider.owl-carousel .owl-item.active .hero__text .label {
 	top: 0;
 	opacity: 1;
