@@ -527,35 +527,35 @@ ol {
 	color: #ffffff;
 	border-radius: 0 4px 4px 0;
 }
-<<<<<<< HEAD
-.hero__items h2, p{
-	text-shadow: -1px 1px 0 #000,
-                          1px 1px 0 #000,
-                         1px -1px 0 #000,
-                        -1px -1px 0 #000;
+.hero__items h2, .hero__items p{
+	text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
 .hero__items p{
 	font-weight: bold;
 }
-.about-tittle h1, .about-text p{
+.about-tittle h1, .about-text p, .about-team-tittle > h3, .card-title{
 	color: white;
 	font-family: "Oswald", sans-serif;
-	text-shadow: -1px 1px 0 #000,
-                          1px 1px 0 #000,
-                         1px -1px 0 #000,
-                        -1px -1px 0 #000;
+	text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
-.about-text {
+.about-text, .card {
 	background-color: #888888;
-	
 }
 .about-text p{
+	color: white;
 	font-family: "Mulish", sans-serif;
 	font-size: 1.2rem;
 }
-=======
+.card-text{
+	color: white;
+	font-family: "Mulish", sans-serif;
+}
+@media only screen and  (max-width: 970px) {
+	.about-tittle h1{
+		font-size: 3rem;
+	}
+}
 
->>>>>>> 4479ff94a5e108a080b27d2aee3f55522d57233c
 .hero__slider.owl-carousel .owl-item.active .hero__text .label {
 	top: 0;
 	opacity: 1;
