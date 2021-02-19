@@ -9,16 +9,15 @@
 
 "use strict";
 
-(function($) {
-  let links = [];
+(function ($) {
 
+  // GET FIRST 5 TV SERIES
+  let links = [];
   $.ajax({
     url: "http://api.tvmaze.com/schedule/web",
     async: false,
     success: function(result) {
       result.slice(0, 5).forEach(element => {
-        // console.log(element);
-        // console.log(links);
         links.push(element._embedded.show);
       });
     }
@@ -27,21 +26,14 @@
   /*------------------
         Preloader
     --------------------*/
-  $(window).on("load", function() {
-    console.log(links);
+  $(window).on("load", function () {
 
+    // ADD TV SERIES INFO TO CAROUSEL
     let abc = Array.from(document.querySelectorAll(".set-bg")).slice(3, 8);
-    console.log(abc);
     abc.forEach((carouselItem, index) => {
-      // console.log(links);
-      carouselItem.setAttribute("data-setbg", links[index].image.original);
-      carouselItem.setAttribute(
-        "style",
-        "background-image: url('" + links[index].image.original + "');"
-      );
+      carouselItem.setAttribute('data-setbg', links[index].image.original);
+      carouselItem.setAttribute('style', "background-image: url('"+links[index].image.original+"');");
     });
-
-    // console.log([links, abc]);
 
     $(".loader").fadeOut();
     $("#preloder")
