@@ -43,13 +43,17 @@
     let movie_genre = Array.from(document.querySelectorAll(".hero__text .label")).slice(3, 8);
     movie_genre.forEach((carouselItem, index) => {
       carouselItem.innerHTML = "";
-      links[index].genres.forEach((genre, index2) => {
-        if (index2 == links[index].genres.length - 1) {
-          carouselItem.innerHTML += genre;
-        } else {
-          carouselItem.innerHTML += (genre + ",&nbsp;");
-        }
-      });
+      if (links[index].genres.length === 0) {
+        carouselItem.innerHTML = "No genre information";
+      } else {
+        links[index].genres.forEach((genre, index2) => {
+          if (index2 == links[index].genres.length - 1) {
+            carouselItem.innerHTML += genre;
+          } else {
+            carouselItem.innerHTML += (genre + ",&nbsp;");
+          }
+        });
+      }
     });
 
     // fill carousel with TV shows titles
