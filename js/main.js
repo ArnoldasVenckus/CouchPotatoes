@@ -125,16 +125,16 @@
   });
 
   /*------------------
-		Navigation
-	--------------------*/
+    Navigation
+  --------------------*/
   $(".mobile-menu").slicknav({
     prependTo: "#mobile-menu-wrap",
     allowParentLinks: true,
   });
 
   /*------------------
-		Hero Slider
-	--------------------*/
+    Hero Slider
+  --------------------*/
   var hero_s = $(".hero__slider");
   hero_s.owlCarousel({
     loop: true,
