@@ -1974,10 +1974,25 @@ ol {
 -----------------------*/
 
 .footer {
-  background: #070720;
-  padding-top: 60px;
-  padding-bottom: 40px;
-  position: relative;
+	background: #070720;
+	padding-top: 60px;
+	padding-bottom: 40px;
+	position: relative;
+    font-size: 2rem;
+}
+
+.footer_link{
+    color: rgb(130, 159, 217);
+}
+
+.footer_link:hover{
+    color: crimson;
+}
+
+footer .contact p{
+    color: rgb(130, 159, 217);
+    font-size: 1.5rem;
+    font-family: 'Newsreader', serif;
 }
 
 .page-up {
@@ -2036,6 +2051,7 @@ ol {
 .footer__copyright__text a {
   color: #e53637;
 }
+
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
