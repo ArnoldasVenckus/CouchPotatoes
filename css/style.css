@@ -327,7 +327,8 @@ ol {
 -----------------------*/
 
 .header {
-  background: #070720;
+  background: #070722;
+  border-bottom: 0.1px solid #471212;
 }
 
 .header__logo {
