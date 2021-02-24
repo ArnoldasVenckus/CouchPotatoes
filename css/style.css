@@ -140,7 +140,7 @@ ol {
 
 .set-bg {
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: top center;
 }
 
@@ -487,6 +487,8 @@ ol {
 }
 
 .hero__text p {
+  height: 100px;
+  overflow: hidden;
   color: #ffffff;
   font-size: 16px;
   margin-bottom: 40px;
@@ -527,6 +529,41 @@ ol {
   padding: 11px 5px 16px 8px;
   color: #ffffff;
   border-radius: 0 4px 4px 0;
+}
+.hero__items h2,
+.hero__items p {
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+.hero__items p {
+  font-weight: bold;
+}
+.about-tittle h1,
+.about-text p,
+.about-team-tittle > h3,
+.card-title {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+.about-text,
+.card {
+  background-color: #888888;
+}
+.about-text p {
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.2rem;
+}
+.card-text {
+  color: white;
+  font-family: 'Mulish', sans-serif;
+}
+@media only screen and (max-width: 970px) {
+  .about-tittle h1 {
+    font-size: 3rem;
+  }
 }
 
 .hero__slider.owl-carousel .owl-item.active .hero__text .label {
@@ -1938,10 +1975,25 @@ ol {
 -----------------------*/
 
 .footer {
-  background: #070720;
-  padding-top: 60px;
-  padding-bottom: 40px;
-  position: relative;
+	background: #070720;
+	padding-top: 60px;
+	padding-bottom: 40px;
+	position: relative;
+    font-size: 2rem;
+}
+
+.footer_link{
+    color: rgb(130, 159, 217);
+}
+
+.footer_link:hover{
+    color: crimson;
+}
+
+footer .contact p{
+    color: rgb(130, 159, 217);
+    font-size: 1.5rem;
+    font-family: 'Newsreader', serif;
 }
 
 .page-up {
@@ -2000,6 +2052,7 @@ ol {
 .footer__copyright__text a {
   color: #e53637;
 }
+
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

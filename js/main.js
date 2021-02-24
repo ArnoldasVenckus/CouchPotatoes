@@ -10,10 +10,94 @@
 "use strict";
 
 (function ($) {
+  let links = [];
+
+  // get first 5 TV shows
+  $.ajax({
+    url: "http://api.tvmaze.com/schedule/web",
+    async: false,
+    success: function (result) {
+      result.slice(0, 5).forEach((element) => {
+        links.push(element._embedded.show);
+      });
+    },
+  });
+
   /*------------------
         Preloader
     --------------------*/
   $(window).on("load", function () {
+    console.log(links);
+
+    // fill carousel with TV shows cover images
+    let movie_cover = Array.from(document.querySelectorAll(".set-bg")).slice(
+      3,
+      8
+    );
+    movie_cover.forEach((carouselItem, index) => {
+      if (links[index].image !== null) {
+        carouselItem.setAttribute("data-setbg", links[index].image.original);
+        carouselItem.setAttribute(
+          "style",
+          "background-image: url('" + links[index].image.original + "');"
+        );
+      } else {
+        let no_image = "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
+        carouselItem.setAttribute("data-setbg", no_image);
+        carouselItem.setAttribute(
+          "style",
+          "background-image: url('" + no_image + "');"
+        );
+      }
+    });
+
+    // fill carousel with TV shows genres
+    let movie_genre = Array.from(
+      document.querySelectorAll(".hero__text .label")
+    ).slice(3, 8);
+    movie_genre.forEach((carouselItem, index) => {
+      carouselItem.innerHTML = "";
+      if (links[index].genres.length === 0) {
+        carouselItem.innerHTML = "No genre information";
+      } else {
+        links[index].genres.forEach((genre, index2) => {
+          if (index2 == links[index].genres.length - 1) {
+            carouselItem.innerHTML += genre;
+          } else {
+            carouselItem.innerHTML += genre + ",&nbsp;";
+          }
+        });
+      }
+    });
+
+    // fill carousel with TV shows titles
+    let movie_title = Array.from(
+      document.querySelectorAll(".hero__text h2")
+    ).slice(3, 8);
+    movie_title.forEach((carouselItem, index) => {
+      carouselItem.innerText = links[index].name;
+    });
+
+    // fill carousel with links to TV shows episodes
+    let movie_link = Array.from(
+      document.querySelectorAll(".hero__text a")
+    ).slice(3, 8);
+    movie_link.forEach((carouselItem, index) => {
+      carouselItem.setAttribute("href", links[index].url);
+    });
+
+    // fill carousel with TV shows description
+    let movie_description = Array.from(
+      document.querySelectorAll(".hero__text p")
+    ).slice(3, 8);
+    movie_description.forEach((carouselItem, index) => {
+      if (links[index].summary === null) {
+        carouselItem.innerHTML = "No description for this show";
+      } else {
+        carouselItem.innerHTML = links[index].summary;
+      }
+    });
+
     $(".loader").fadeOut();
     $("#preloder").delay(200).fadeOut("slow");
 
@@ -50,16 +134,16 @@
   });
 
   /*------------------
-		Navigation
-	--------------------*/
+    Navigation
+  --------------------*/
   $(".mobile-menu").slicknav({
     prependTo: "#mobile-menu-wrap",
     allowParentLinks: true,
   });
 
   /*------------------
-		Hero Slider
-	--------------------*/
+    Hero Slider
+  --------------------*/
   var hero_s = $(".hero__slider");
   hero_s.owlCarousel({
     loop: true,
@@ -106,7 +190,12 @@
         Scroll To Top
     --------------------*/
   $("#scrollToTopButton").click(function () {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      "slow"
+    );
     return false;
   });
 })(jQuery);
