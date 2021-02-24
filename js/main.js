@@ -35,11 +35,20 @@
       8
     );
     movie_cover.forEach((carouselItem, index) => {
-      carouselItem.setAttribute("data-setbg", links[index].image.original);
-      carouselItem.setAttribute(
-        "style",
-        "background-image: url('" + links[index].image.original + "');"
-      );
+      if (links[index].image !== null) {
+        carouselItem.setAttribute("data-setbg", links[index].image.original);
+        carouselItem.setAttribute(
+          "style",
+          "background-image: url('" + links[index].image.original + "');"
+        );
+      } else {
+        let no_image = "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
+        carouselItem.setAttribute("data-setbg", no_image);
+        carouselItem.setAttribute(
+          "style",
+          "background-image: url('" + no_image + "');"
+        );
+      }
     });
 
     // fill carousel with TV shows genres
