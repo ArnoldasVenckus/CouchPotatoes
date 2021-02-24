@@ -14,7 +14,7 @@
 
   // get first 5 TV shows
   $.ajax({
-    url: "http://api.tvmaze.com/schedule/web",
+    url: "https://api.tvmaze.com/schedule/web",
     async: false,
     success: function (result) {
       result.slice(0, 5).forEach((element) => {
