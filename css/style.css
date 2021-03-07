@@ -1970,6 +1970,40 @@ ol {
   text-align: center;
 }
 
+/* tv stuff */
+
+.tv_title{
+  color: black;
+  font-family: 'Newsreader', serif;
+  font-weight: bolder;
+}
+
+.tv_summary p{
+  color:black ;
+  font-size: 1.3rem;
+  font-family: 'Newsreader', serif;
+}
+
+.tv_row_1{
+  /* background-color: wheat; */
+  background-color: rgb(238, 201, 179);
+}
+
+.btn{
+  width: 6rem;
+  font-family: 'Newsreader', serif;
+}
+
+.rating{
+  font-family: 'Newsreader', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* .tv_container{
+  background-color: wheat;
+} */
+
 /*---------------------
   Footer
 -----------------------*/
