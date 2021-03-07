@@ -27,7 +27,7 @@
         Preloader
     --------------------*/
   $(window).on("load", function () {
-    console.log(links);
+    // console.log(links);
 
     // fill carousel with TV shows cover images
     let movie_cover = Array.from(document.querySelectorAll(".set-bg")).slice(
@@ -42,7 +42,8 @@
           "background-image: url('" + links[index].image.original + "');"
         );
       } else {
-        let no_image = "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
+        let no_image =
+          "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
         carouselItem.setAttribute("data-setbg", no_image);
         carouselItem.setAttribute(
           "style",
@@ -132,6 +133,41 @@
       $("#search-input").val("");
     });
   });
+
+  /*-----------------------------
+    Starting Search
+-------------------------------*/
+  // Feching data from TVmaze with key word
+  async function getSearchRezults(keyWord) {
+    let url = `http://api.tvmaze.com/search/shows?q=${keyWord}`;
+    let response = await fetch(url);
+    if (!response.ok) {
+      let message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
+    let data = await response.json();
+    return data;
+  }
+
+  // Getting input Value by every keyup
+  document.addEventListener("DOMContentLoaded", function () {
+    $(".search-model-form").submit(function (e) {
+      e.preventDefault();
+    });
+    $(".search-model-form").on("keypress", "#search-input", async function (e) {
+      // On enter print TV shows by input value
+      await getSearchRezults($(this).val()).then((rezult) => {
+        rezult.map((shows) => {
+          console.log(shows.show.name);
+        });
+      });
+      console.log($(this).val());
+    });
+  });
+
+  /*-----------------------------
+    End Search
+-------------------------------*/
 
   /*------------------
     Navigation
