@@ -28,7 +28,7 @@ req.onreadystatechange = function () {
             row_one.classList.add('row', 'tv_row_1', 'mb-5', 'mt-5');
             container.appendChild(row_one);
             col_one = document.createElement("div");
-            col_one.classList.add('col');
+            col_one.classList.add('col', 'col_one');
             row_one.appendChild(col_one);
 
             title = document.createElement("h2");
@@ -75,7 +75,7 @@ req.onreadystatechange = function () {
 
             // SUMMARY
             col_two = document.createElement("div");
-            col_two.classList.add('col');
+            col_two.classList.add('col', 'col_two');
             row_one.appendChild(col_two);
             summary = document.createElement("div");
             summary.classList.add('tv_summary', 'mt-5', 'align-middle');
