@@ -139,7 +139,7 @@
 -------------------------------*/
   // Feching data from TVmaze with key word
   async function getSearchRezults(keyWord) {
-    let url = `http://api.tvmaze.com/search/shows?q=${keyWord}`;
+    let url = `https://api.tvmaze.com/search/shows?q=${keyWord}`;
     let response = await fetch(url);
     if (!response.ok) {
       let message = `An error has occured: ${response.status}`;
@@ -156,12 +156,14 @@
     });
     $(".search-model-form").on("keypress", "#search-input", async function (e) {
       // On enter print TV shows by input value
-      await getSearchRezults($(this).val()).then((rezult) => {
-        rezult.map((shows) => {
-          console.log(shows.show.name);
+      if (e.which == 13) {
+        await getSearchRezults($(this).val()).then((rezult) => {
+          rezult.map((shows) => {
+            console.log(shows.show);
+          });
         });
-      });
-      console.log($(this).val());
+        console.log($(this).val());
+      }
     });
   });
 
