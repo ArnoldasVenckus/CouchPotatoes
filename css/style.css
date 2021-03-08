@@ -1970,6 +1970,49 @@ ol {
   text-align: center;
 }
 
+/* tv stuff */
+
+.tv_title{
+  color: #333;
+  font-family: 'Newsreader', serif;
+  font-weight: bolder;
+}
+
+.tv_summary p{
+  color: #333 ;
+  font-size: 1.3rem;
+  font-family: 'Newsreader', serif;
+}
+
+.tv_row_1{
+  /* background-color: wheat; */
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 1%;
+}
+
+.col_one, .col_two{
+  border: 1px solid #333;
+}
+
+.btn{
+  width: 6rem;
+  font-family: 'Newsreader', serif;
+  font-weight: bold;
+  border: 1px solid #333;
+}
+
+.rating{
+  font-family: 'Newsreader', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+
+/* .tv_container{
+  background-color: wheat;
+} */
+
 /*---------------------
   Footer
 -----------------------*/
@@ -1979,7 +2022,7 @@ ol {
 	padding-top: 60px;
 	padding-bottom: 40px;
 	position: relative;
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .footer_link{
