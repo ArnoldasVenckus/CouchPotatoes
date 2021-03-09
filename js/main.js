@@ -124,10 +124,10 @@
   });
 
   // Search model
-  $(".search-switch").on("click", function () {
-    console.log("fired");
-    $(".search-model").fadeIn(400);
-  });
+  // $(".search-switch").on("click", function () {
+  //   console.log("fired");
+  //   $(".search-model").fadeIn(400);
+  // });
 
   $(".search-close-switch").on("click", function () {
     $(".search-model").fadeOut(400, function () {
