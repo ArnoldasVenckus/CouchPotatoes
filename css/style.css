@@ -201,7 +201,7 @@ ol {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 999999;
+  z-index: 99998;
   background: #000;
 }
 
@@ -266,7 +266,7 @@ ol {
   z-index: 999;
 }
 
-.spacial-controls .search-switch {
+.spacial-controls #search-switch {
   display: block;
   height: 100%;
   padding-top: 30px;
@@ -283,7 +283,7 @@ ol {
   left: 0;
   top: 0;
   background: #000;
-  z-index: 99999;
+  z-index: 9999999;
 }
 
 .search-model-form {
@@ -420,7 +420,7 @@ ol {
 
 .header__right {
   text-align: right;
-  padding: 20px 0 15px;
+  padding: 20px 0 0 15px;
 }
 
 .header__right a {
@@ -1972,42 +1972,42 @@ ol {
 
 /* tv stuff */
 
-.tv_title{
+.tv_title {
   color: #333;
   font-family: 'Newsreader', serif;
   font-weight: bolder;
 }
 
-.tv_summary p{
-  color: #333 ;
+.tv_summary p {
+  color: #333;
   font-size: 1.3rem;
   font-family: 'Newsreader', serif;
 }
 
-.tv_row_1{
+.tv_row_1 {
   /* background-color: wheat; */
   background-color: rgba(217, 217, 217, 1);
   border-radius: 1%;
 }
 
-.col_one, .col_two{
+.col_one,
+.col_two {
   border: 1px solid #333;
 }
 
-.btn{
+.btn {
   width: 6rem;
   font-family: 'Newsreader', serif;
   font-weight: bold;
   border: 1px solid #333;
 }
 
-.rating{
+.rating {
   font-family: 'Newsreader', serif;
   font-weight: bold;
   font-size: 1.2rem;
   color: #333;
 }
-
 
 /* .tv_container{
   background-color: wheat;
@@ -2018,25 +2018,25 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #070720;
-	padding-top: 60px;
-	padding-bottom: 40px;
-	position: relative;
+  background: #070720;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  position: relative;
   font-size: 2rem;
 }
 
-.footer_link{
-    color: rgb(130, 159, 217);
+.footer_link {
+  color: rgb(130, 159, 217);
 }
 
-.footer_link:hover{
-    color: crimson;
+.footer_link:hover {
+  color: crimson;
 }
 
-footer .contact p{
-    color: rgb(130, 159, 217);
-    font-size: 1.5rem;
-    font-family: 'Newsreader', serif;
+footer .contact p {
+  color: rgb(130, 159, 217);
+  font-size: 1.5rem;
+  font-family: 'Newsreader', serif;
 }
 
 .page-up {
@@ -2095,7 +2095,6 @@ footer .contact p{
 .footer__copyright__text a {
   color: #e53637;
 }
-
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

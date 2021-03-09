@@ -125,6 +125,7 @@
 
   // Search model
   $(".search-switch").on("click", function () {
+    console.log("fired");
     $(".search-model").fadeIn(400);
   });
 
