@@ -41,7 +41,7 @@
         row_one.classList.add("row", "tv_row_1", "mb-5", "mt-5");
         container.appendChild(row_one);
         let col_one = document.createElement("div");
-        col_one.classList.add("col", "col_one");
+        col_one.classList.add("col-md-6", "col_one", "col-sm-12");
         row_one.appendChild(col_one);
 
         let title = document.createElement("h2");
@@ -88,7 +88,7 @@
 
         // SUMMARY
         let col_two = document.createElement("div");
-        col_two.classList.add("col", "col_two");
+        col_two.classList.add("col-md-6", "col_two", "col-sm-12");
         row_one.appendChild(col_two);
         let summary = document.createElement("div");
         summary.classList.add("tv_summary", "mt-5", "align-middle");
@@ -115,7 +115,7 @@
             row_one.classList.add("row", "tv_row_1", "mb-5", "mt-5");
             container.appendChild(row_one);
             let col_one = document.createElement("div");
-            col_one.classList.add("col", "col_one");
+            col_one.classList.add("col-md-6", "col_one", "col-sm-12");
             row_one.appendChild(col_one);
 
             let title = document.createElement("h2");
@@ -161,7 +161,7 @@
 
             // SUMMARY
             let col_two = document.createElement("div");
-            col_two.classList.add("col", "col_two");
+            col_two.classList.add("col-md-6", "col_two", "col-sm-12");
             row_one.appendChild(col_two);
             let summary = document.createElement("div");
             summary.classList.add("tv_summary", "mt-5", "align-middle");
