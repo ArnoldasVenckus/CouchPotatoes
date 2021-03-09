@@ -2009,6 +2009,12 @@ ol {
   color: #333;
 }
 
+.descrp {
+  color: rgb(217, 217, 217);
+  font-size: 1.5rem;
+  font-family: 'Newsreader', serif;
+}
+
 /* .tv_container{
   background-color: wheat;
 } */
