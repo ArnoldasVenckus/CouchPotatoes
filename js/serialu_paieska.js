@@ -102,6 +102,7 @@
     });
     $(".search-model-form").submit(function (e) {
       e.preventDefault();
+      document.querySelector("#on_air_today").style = "display: none";
     });
     $(".search-model-form").on("keypress", "#search-input", async function (e) {
       // On enter print TV shows by input value
@@ -109,22 +110,29 @@
         // $(location).attr("href", "serialu_paieska.html");
         await getSearchRezults($(this).val()).then((movies) => {
           container.innerHTML = "";
+          let h2_text = "";
           if (movies == null || movies == "") {
-            let row_one = document.createElement("div");
-            row_one.classList.add(
-              "d-flex",
-              "justify-content-center",
-              "tv_row_1",
-              "mb-5",
-              "mt-5"
-            );
-            container.appendChild(row_one);
-            let h2Tag = document.createElement("h2");
-            h2Tag.classList.add("text-center");
-            h2Tag.innerText = "Rezultatų nerasta pagal raktinį žodį!";
-            row_one.appendChild(h2Tag);
-            console.log("Rezultatų nerasta pagal raktinį žodį");
+            document.querySelector("footer").style = "position: fixed;";
+            h2_text = "Rezultatų nerasta pagal raktinį žodį!";
+          } else {
+            document.querySelector("footer").style = "position: relative;";
+            h2_text = `Rezultatai pagal raktinį žodį \"${e.target.value}\" !`;
           }
+
+          let row_one = document.createElement("div");
+          row_one.classList.add(
+            "d-flex",
+            "justify-content-center",
+            "tv_row_1",
+            "mb-5",
+            "mt-5"
+          );
+          container.appendChild(row_one);
+          let h2Tag = document.createElement("h2");
+          h2Tag.classList.add("text-center");
+          h2Tag.innerText = h2_text;
+          row_one.appendChild(h2Tag);
+
           movies.map((movie) => {
             // TITLE
 
