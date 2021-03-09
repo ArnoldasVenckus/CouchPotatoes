@@ -27,7 +27,7 @@
         Preloader
     --------------------*/
   $(window).on("load", function () {
-    console.log(links);
+    // console.log(links);
 
     // fill carousel with TV shows cover images
     let movie_cover = Array.from(document.querySelectorAll(".set-bg")).slice(
@@ -42,7 +42,8 @@
           "background-image: url('" + links[index].image.original + "');"
         );
       } else {
-        let no_image = "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
+        let no_image =
+          "https://image.shutterstock.com/image-vector/no-user-profile-picture-hand-260nw-99335579.jpg";
         carouselItem.setAttribute("data-setbg", no_image);
         carouselItem.setAttribute(
           "style",
@@ -131,6 +132,13 @@
     $(".search-model").fadeOut(400, function () {
       $("#search-input").val("");
     });
+  });
+  $(".search-model-form").on("keypress", "#search-input", function (e) {
+    if (e.which == 13) {
+      $(".search-model").fadeOut(400, function () {
+        $("#search-input").val("");
+      });
+    }
   });
 
   /*------------------
