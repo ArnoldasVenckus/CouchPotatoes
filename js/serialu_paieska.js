@@ -109,8 +109,25 @@
         // $(location).attr("href", "serialu_paieska.html");
         await getSearchRezults($(this).val()).then((movies) => {
           container.innerHTML = "";
+          if (movies == null || movies == "") {
+            let row_one = document.createElement("div");
+            row_one.classList.add(
+              "d-flex",
+              "justify-content-center",
+              "tv_row_1",
+              "mb-5",
+              "mt-5"
+            );
+            container.appendChild(row_one);
+            let h2Tag = document.createElement("h2");
+            h2Tag.classList.add("text-center");
+            h2Tag.innerText = "Rezultatų nerasta pagal raktinį žodį!";
+            row_one.appendChild(h2Tag);
+            console.log("Rezultatų nerasta pagal raktinį žodį");
+          }
           movies.map((movie) => {
             // TITLE
+
             let row_one = document.createElement("div");
             row_one.classList.add("row", "tv_row_1", "mb-5", "mt-5");
             container.appendChild(row_one);
