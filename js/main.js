@@ -133,43 +133,13 @@
       $("#search-input").val("");
     });
   });
-
-  /*-----------------------------
-    Starting Search
--------------------------------*/
-  // Feching data from TVmaze with key word
-  async function getSearchRezults(keyWord) {
-    let url = `https://api.tvmaze.com/search/shows?q=${keyWord}`;
-    let response = await fetch(url);
-    if (!response.ok) {
-      let message = `An error has occured: ${response.status}`;
-      throw new Error(message);
+  $(".search-model-form").on("keypress", "#search-input", function (e) {
+    if (e.which == 13) {
+      $(".search-model").fadeOut(400, function () {
+        $("#search-input").val("");
+      });
     }
-    let data = await response.json();
-    return data;
-  }
-
-  // Getting input Value by every keyup
-  document.addEventListener("DOMContentLoaded", function () {
-    $(".search-model-form").submit(function (e) {
-      e.preventDefault();
-    });
-    $(".search-model-form").on("keypress", "#search-input", async function (e) {
-      // On enter print TV shows by input value
-      if (e.which == 13) {
-        await getSearchRezults($(this).val()).then((rezult) => {
-          rezult.map((shows) => {
-            console.log(shows.show);
-          });
-        });
-        console.log($(this).val());
-      }
-    });
   });
-
-  /*-----------------------------
-    End Search
--------------------------------*/
 
   /*------------------
     Navigation
