@@ -6,7 +6,36 @@
   let footer = document.querySelector("footer");
   let container = document.createElement("div");
   container.classList.add("container", "tv_container");
+  let genres_container = document.querySelector("#genres-container");
   body.insertBefore(container, footer);
+
+  // SET OF UNIQUE GENRES
+  let genres;
+  let genres_select = document.querySelector("#genres-selection");
+
+  // FUNCTION FOR GENRE COLLECTION
+  function farmGenres(source) {
+    if (source.length != 0) {
+      genres.add(...source);
+    }
+  }
+
+  //  PRINT GENRES
+  function printGenres() {
+    genres_select.innerHTML = "";
+    if (genres.size != 0) {
+      let select = document.createElement("select");
+      select.setAttribute("name", "genres-selection");
+      select.classList.add("form-control", "text-center");
+      genres.forEach(genre => {
+        let option = document.createElement("option");
+        option.innerText = genre;
+        option.setAttribute("value", genre);
+        select.append(option);
+      });
+      genres_select.append(select);
+    }
+  }
 
   /*-----------------------------
     Starting Search
@@ -34,9 +63,14 @@
 
     await getSearchRezults().then((movies) => {
       container.innerHTML = "";
+      // RESET GENRES SET
+      genres = new Set();
       movies.map((movie) => {
-        // TITLE
 
+        // FARM GENRES
+        farmGenres(movie._embedded.show.genres);
+
+        // TITLE
         let row_one = document.createElement("div");
         row_one.classList.add("row", "tv_row_1", "mb-5", "mt-5");
         container.appendChild(row_one);
@@ -99,11 +133,16 @@
 
         col_two.appendChild(summary);
       });
+
+      // PRINT GENRES
+      printGenres();
+
     });
+
     $(".search-model-form").submit(function (e) {
       e.preventDefault();
-      document.querySelector("#on_air_today").style = "display: none";
     });
+
     $(".search-model-form").on("keypress", "#search-input", async function (e) {
       // On enter print TV shows by input value
       if (e.which == 13) {
@@ -119,23 +158,14 @@
             h2_text = `Rezultatai pagal raktinį žodį \"${e.target.value}\" !`;
           }
 
-          let row_one = document.createElement("div");
-          row_one.classList.add(
-            "d-flex",
-            "justify-content-center",
-            "tv_row_1",
-            "mb-5",
-            "mt-5"
-          );
-          container.appendChild(row_one);
-          let h2Tag = document.createElement("h2");
-          h2Tag.classList.add("text-center");
-          h2Tag.innerText = h2_text;
-          row_one.appendChild(h2Tag);
+          document.querySelector("#on_air_today").innerText = h2_text;
 
+          // RESET GENRES SET
+          genres = new Set();
           movies.map((movie) => {
+            // FARM GENRES
+            farmGenres(movie.show.genres);
             // TITLE
-
             let row_one = document.createElement("div");
             row_one.classList.add("row", "tv_row_1", "mb-5", "mt-5");
             container.appendChild(row_one);
@@ -197,6 +227,9 @@
 
             col_two.appendChild(summary);
           });
+
+          // PRINT GENRES
+          printGenres();
         });
       }
     });
